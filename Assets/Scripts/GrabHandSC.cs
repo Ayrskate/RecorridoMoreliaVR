@@ -109,22 +109,22 @@ public class GrabHandSC : MonoBehaviour
 
         if (grabbableObject != null)
         {
-            grabbableObject.transform.parent = null;
-
-            grabbingObject = false;
+            if (grabbableObject.IsChildOf(transform))
+            {
+                grabbableObject.transform.parent = null;                
+            }            
         }
+        grabbableObject = null;
+        grabbingObject = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Grabbable")
         {
-
-            Debug.Log("Puede agarrar a objeto: " + other.gameObject.name);
-
-
             if (!grabbingObject)
-            {                
+            {
+                Debug.Log("Puede agarrar a objeto: " + other.gameObject.name);
                 grabbableObject = other.transform;                
             }
         }
