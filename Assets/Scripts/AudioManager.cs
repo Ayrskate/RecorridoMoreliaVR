@@ -14,7 +14,8 @@ public class AudioManager : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
-        StartCoroutine(SceneManager.GetActiveScene().name);
+        listener = GetComponent<AudioSource>();
+        StartCoroutine(""+SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
@@ -22,11 +23,12 @@ public class AudioManager : MonoBehaviour{
         
     }
 
-    IEnumerator Patzcuaro(){
+    IEnumerator LaManzanillera(){
         yield return new WaitForSeconds(2);
         listener.Pause();
         listener.clip = audios[index];
         listener.Play();
+        yield return new WaitForSeconds(listener.clip.length);
         index++;
         StartCoroutine(SceneManager.GetActiveScene().name);
     }
