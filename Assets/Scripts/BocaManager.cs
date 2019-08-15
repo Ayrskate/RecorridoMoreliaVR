@@ -20,8 +20,27 @@ public class BocaManager : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.name == "Carnitas"){
-            manager.listener.clip = manager.audios[0];
+        switch(other.gameObject.name){
+            case "Uchepos":
+                manager.listener.clip = manager.audios[2];
+                break;
+            case "Corunda":
+                manager.listener.clip = manager.audios[3];
+                break;
+            case "Carnitas":
+                manager.listener.clip = manager.audios[1];
+                break;
+            case "Pozole":
+                manager.listener.clip = manager.audios[4];
+                break;
+            case "Sopa Tarasca":
+                manager.listener.clip = manager.audios[6];
+                break;
+            case "Morisqueta":
+                manager.listener.clip = manager.audios[5];
+                break;
         }
+        manager.listener.Pause();
+        manager.listener.Play();
     }
 }
