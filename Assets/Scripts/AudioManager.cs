@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour{
     public AudioSource listener;
 
+    public SiguientePosicionSC teletransportacion;
+
     int index = 0;
     public AudioClip [] audios;
     public Animator catrin;
@@ -32,5 +34,6 @@ public class AudioManager : MonoBehaviour{
         yield return new WaitForSeconds(listener.clip.length);
         catrin.SetBool("Hablando", false);
         catrin.SetBool("Idle", true);
+        teletransportacion.enabled = true;
     }
 }
