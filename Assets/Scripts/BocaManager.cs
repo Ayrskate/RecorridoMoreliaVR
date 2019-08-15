@@ -7,46 +7,53 @@ using UnityEngine;
 
 public class BocaManager : MonoBehaviour{
 
-    AudioManager manager;
-
+    public AudioSource listener;
+    int cont = 0;
+    public AudioClip [] audiosPlatos;
     // Start is called before the first frame update
     void Start(){
-        
+
     }
 
     // Update is called once per frame
     void Update(){
-        
+        if(Input.GetKeyUp(KeyCode.Q)){
+            listener.Pause();
+            cont++; 
+            listener.clip = audiosPlatos[cont];
+            listener.Play();        
+        }
     }
 
-    void OnCollisionEnter(Collision other) {
+    void OnTriggerEnter(Collider other){
         switch(other.gameObject.name){
             case "Uchepos":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[2];
+                listener.clip = audiosPlatos[1];
                 break;
             case "Corunda":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[3];
+                listener.clip = audiosPlatos[2];
                 break;
             case "Carnitas":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[1];
+                listener.clip = audiosPlatos[0];
                 break;
             case "Pozole":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[4];
+                listener.clip = audiosPlatos[3];
                 break;
             case "Sopa Tarasca":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[6];
+                listener.clip = audiosPlatos[5];
                 break;
             case "Morisqueta":
                 Debug.Log(other.gameObject.name);
-                manager.listener.clip = manager.audios[5];
+                listener.clip = audiosPlatos[4];
                 break;
         }
-        manager.listener.Pause();
-        manager.listener.Play();
+        listener.Play();
     }
 }
+
+
