@@ -47,6 +47,7 @@ public class BocaManager : MonoBehaviour{
                 listener.clip = audiosPlatos[4];
                 break;
         }
+        listener.Pause();
         listener.Play();
     }
 }

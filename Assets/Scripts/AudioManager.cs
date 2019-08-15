@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 
 public class AudioManager : MonoBehaviour{
-    public AudioSource listener;
+     AudioSource listener;
 
     public GameObject teletransportacion;
 
@@ -39,8 +39,9 @@ public class AudioManager : MonoBehaviour{
 
     IEnumerator TP(){
         index++;
-        teletransportacion.SetActive(true);
+        teletransportacion.SetActive(false);
         yield return new WaitForSeconds(5);
+        teletransportacion.SetActive(true);
         if (index < 4) StartCoroutine("TP");
     }
 }
