@@ -95,7 +95,7 @@ public class GrabHandSC : MonoBehaviour
 
         if(grabbableObject != null)
         {
-            
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
             grabbableObject.transform.parent = transform;
             grabbableObject.transform.localPosition = Vector3.zero;
 
