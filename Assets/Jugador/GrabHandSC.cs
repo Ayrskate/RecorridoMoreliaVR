@@ -98,7 +98,6 @@ public class GrabHandSC : MonoBehaviour
             grabbableObject.GetComponent<Rigidbody>().isKinematic = true;
             grabbableObject.transform.parent = transform;
             grabbableObject.transform.localPosition = Vector3.zero;
-
             grabbingObject = true;            
         }
     }
@@ -111,6 +110,8 @@ public class GrabHandSC : MonoBehaviour
         {
             if (grabbableObject.IsChildOf(transform))
             {
+                grabbableObject.GetComponent<Rigidbody>().isKinematic = false;
+
                 grabbableObject.transform.parent = null;                
             }            
         }
