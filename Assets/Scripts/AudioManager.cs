@@ -38,10 +38,14 @@ public class AudioManager : MonoBehaviour{
     }
 
     IEnumerator TP(){
-        index++;
-        teletransportacion.SetActive(false);
-        yield return new WaitForSeconds(5);
+        Debug.Log(index);
         teletransportacion.SetActive(true);
-        if (index < 4) StartCoroutine("TP");
+        yield return new WaitForSeconds(5);
+        teletransportacion.SetActive(false);
+
+        if (index < 4) {
+            StartCoroutine("TP");
+            index++;
+        }
     }
 }

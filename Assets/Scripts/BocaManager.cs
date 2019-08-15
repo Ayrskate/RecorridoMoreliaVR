@@ -26,7 +26,7 @@ public class BocaManager : MonoBehaviour{
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[1];
                 break;
-            case "Corunda":
+            case "Corundas":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[2];
                 break;
@@ -47,6 +47,7 @@ public class BocaManager : MonoBehaviour{
                 listener.clip = audiosPlatos[4];
                 break;
         }
+        Destroy(other.gameObject);
         listener.Pause();
         listener.Play();
     }
