@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 
 public class AudioManager : MonoBehaviour{
-    AudioSource listener;
+    public AudioSource listener;
 
     int index = 0;
     public AudioClip [] audios;
-
+    public Animator catrin;
     // Start is called before the first frame update
     void Start(){
         listener = GetComponent<AudioSource>();
@@ -28,8 +28,9 @@ public class AudioManager : MonoBehaviour{
         listener.Pause();
         listener.clip = audios[index];
         listener.Play();
+        catrin.SetBool("Hablando", true);
         yield return new WaitForSeconds(listener.clip.length);
-        index++;
-        StartCoroutine(SceneManager.GetActiveScene().name);
+        catrin.SetBool("Hablando", false);
+        catrin.SetBool("Idle", true);
     }
 }
