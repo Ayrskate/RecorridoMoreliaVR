@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour{
     public AudioSource listener;
 
-    public SiguientePosicionSC teletransportacion;
+    public GameObject teletransportacion;
 
     int index = 0;
     public AudioClip [] audios;
@@ -34,6 +34,13 @@ public class AudioManager : MonoBehaviour{
         yield return new WaitForSeconds(listener.clip.length);
         catrin.SetBool("Hablando", false);
         catrin.SetBool("Idle", true);
-        teletransportacion.enabled = true;
+        StartCoroutine("TP");
+    }
+
+    IEnumerator TP(){
+        index++;
+        teletransportacion.SetActive(true);
+        yield return new WaitForSeconds(5);
+        if (index < 4) StartCoroutine("TP");
     }
 }
