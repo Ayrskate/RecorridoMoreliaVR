@@ -25,29 +25,40 @@ public class BocaManager : MonoBehaviour{
             case "Uchepos":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[1];
+                Destroy(other.gameObject);
+
                 break;
             case "Corundas":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[2];
+                Destroy(other.gameObject);
+
                 break;
             case "Carnitas":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[0];
+                Destroy(other.gameObject);
+
                 break;
             case "Pozole":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[3];
+                Destroy(other.gameObject);
+
                 break;
             case "Sopa Tarasca":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[5];
+                Destroy(other.gameObject);
+
                 break;
             case "Morisqueta":
                 Debug.Log(other.gameObject.name);
                 listener.clip = audiosPlatos[4];
+                Destroy(other.gameObject);
+
                 break;
         }
-        Destroy(other.gameObject);
         listener.Pause();
         listener.Play();
     }
