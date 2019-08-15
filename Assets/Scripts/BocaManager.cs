@@ -19,7 +19,7 @@ public class BocaManager : MonoBehaviour{
         
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnCollisionEnter(Collision other) {
         switch(other.gameObject.name){
             case "Uchepos":
                 Debug.Log(other.gameObject.name);
